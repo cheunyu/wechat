@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <constant name="struts.devMode" value="false" />
+    <constant name="struts.configuration.xml.reload" value="true" />
+    <constant name="struts.locale" value="zh_CN" />
+    <constant name="struts.ui.theme" value="simple" />
+    <constant name="struts.i18n.encoding" value="UTF-8" />
+    <constant name="struts.objectFactory" value="spring" />
+    <constant name="struts.multipart.maxSize" value="1024000000" />
+    <!-- 更改struts默认后缀-->
+    <constant name="struts.action.extension" value="do,action,html,jspx"/>
+
+    <package name="root" namespace="/" extends="struts-default">
+        <!-- test action -->
+        <action name="testAction" class="testAction">
+        </action>
+    </package>
+</struts>
