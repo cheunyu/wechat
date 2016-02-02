@@ -6,10 +6,9 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/osgi
        http://www.springframework.org/schema/osgi/spring-osgi.xsd">
-    <!-- Verify server address action -->
-    <bean id="verifyServerAction"
-          class="com.scyb.wechat.verify.action.VerifyServerAction"
-          scope="singleton">
-        <property name="verifyServerService" ref="verifyServerService" ></property>
+    <!-- Verify server address service -->
+    <bean id="verifyServerService"
+          class="com.scyb.wechat.verify.service.impl.VerifyServerServiceImpl"
+          scope="prototype">
     </bean>
 </beans>

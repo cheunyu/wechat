@@ -14,11 +14,11 @@
     <constant name="struts.objectFactory" value="spring" />
     <constant name="struts.multipart.maxSize" value="1024000000" />
     <!-- 更改struts默认后缀-->
-    <constant name="struts.action.extension" value="do,action,html,jspx"/>
+    <constant name="struts.action.extension" value="html"/>
 
     <package name="root" namespace="/" extends="struts-default">
-        <!-- test action -->
-        <action name="testAction" class="testAction">
+        <!-- Verify server address  -->
+        <action name="verifyServerAction" class="verifyServerAction">
         </action>
     </package>
 </struts>

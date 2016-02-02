@@ -17,8 +17,8 @@
     <constant name="struts.action.extension" value="html"/>
 
     <package name="root" namespace="/" extends="struts-default">
-        <!-- test action -->
-        <action name="testAction" class="testAction">
+        <!-- Verify server address  -->
+        <action name="verifyServerAction" class="verifyServerAction">
         </action>
     </package>
 </struts>
