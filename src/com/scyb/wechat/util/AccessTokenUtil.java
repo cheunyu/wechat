@@ -19,26 +19,26 @@ import java.io.IOException;
 public class AccessTokenUtil {
 
     /**
-     * 发送 get请求
+     * ???? get????
      */
     public static void get() {
         CloseableHttpClient httpclient = HttpClients.createDefault();
         String url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx8d2169cd27749791&secret=0da55481c043d802d5a120b66bbe3540";
         try {
-            // 创建httpget.
+            // ????httpget.
             HttpGet httpget = new HttpGet(url);
             System.out.println("executing request " + httpget.getURI());
-            // 执行get请求.
+            // ???get????.
             try (CloseableHttpResponse response = httpclient.execute(httpget)) {
-                // 获取响应实体
+                // ?????????
                 HttpEntity entity = response.getEntity();
                 System.out.println("--------------------------------------");
-                // 打印响应状态
+                // ????????
                 System.out.println(response.getStatusLine());
                 if (entity != null) {
-                    // 打印响应内容长度
+                    // ?????????????
                     System.out.println("Response content length: " + entity.getContentLength());
-                    // 打印响应内容
+                    // ??????????
                     System.out.println("Response content: " + EntityUtils.toString(entity));
                 }
                 System.out.println("------------------------------------");
@@ -46,7 +46,7 @@ public class AccessTokenUtil {
         } catch (ParseException | IOException e) {
             e.printStackTrace();
         } finally {
-            // 关闭连接,释放资源
+            // ???????,??????
             try {
                 httpclient.close();
             } catch (IOException e) {

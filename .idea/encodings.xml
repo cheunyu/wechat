@@ -3,6 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/com/scyb/wechat/material/util/CreateJsonUtil.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/scyb/wechat/menu/CreatMenuJson.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/scyb/wechat/util/AccessTokenUtil.java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
