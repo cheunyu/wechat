@@ -1,6 +1,7 @@
 package com.scyb.wechat.material.util;
 
 import com.scyb.wechat.common.HttpClientUtil;
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import net.sf.json.util.JSONTokener;
 import org.apache.commons.httpclient.HttpClient;
@@ -41,7 +42,7 @@ public class MaterialUtil {
 
     private static final String materalCountUrl = "https://api.weixin.qq.com/cgi-bin/material/get_materialcount?access_token=";
     private static final String materalListUrl = "https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token=";
-    private static String accessToken = "6PZ3E8r5Ox3XSraPhYMcDFkRR2uotn8ByXQbFbZ58R06RkCEVc7IQ9F6H720KXb0KNNW8hP5yiNYcaPf_QBWGo_VRg5jvWCHThm7DysWe28Io7o2aT1WDWISsSY9kJwzSWRjAAACGB";
+    private static String accessToken = "apwMcFwVAqEg_7vtp-cWQ-5qJwfCpaEVbfY5YrSftqNo9w-l4TEQNtyyySjghlL0_xJ_G4-rS7u-7BpFAzmxcY4jkV2OocQWlYWU3KMy2LvnQGHjMsJjnxf6B-QgvrgVKPLhAGAFKG";
 
     public static int getMaterialCount() {
         CloseableHttpClient httpclient = HttpClients.createDefault();
@@ -68,7 +69,7 @@ public class MaterialUtil {
 
         // 创建参数队列
         List<NameValuePair> formParams = new ArrayList<NameValuePair>();
-        formParams.add(new BasicNameValuePair("type", "\"image\""));
+        formParams.add(new BasicNameValuePair("type", "\'image\'"));
         formParams.add(new BasicNameValuePair("offset", "0"));
         formParams.add(new BasicNameValuePair("count", "3"));
         UrlEncodedFormEntity uefEntity;
@@ -99,9 +100,34 @@ public class MaterialUtil {
         }
     }
 
+    public static void getMaterialList1() {
+        HttpPost post = new HttpPost(materalListUrl+accessToken);
+        DefaultHttpClient client = new DefaultHttpClient();
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.element("type", "image");
+        jsonObject.element("offset", "0");
+        jsonObject.element("count", "3");
+        try {
+            StringEntity s = new StringEntity(jsonObject.toString());
+            s.setContentEncoding("UTF-8");
+            s.setContentType("application/json");
+            post.setEntity(s);
+            HttpResponse res = client.execute(post);
+            System.out.println(res.getStatusLine().getStatusCode());
+            HttpEntity entity = res.getEntity();
+            String charset = EntityUtils.getContentCharSet(entity);
+            System.out.println(EntityUtils.toString(entity));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (ClientProtocolException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static void main(String args[]) {
 //        MaterialUtil.getMaterialCount();
-        MaterialUtil.getMaterialList();
+        MaterialUtil.getMaterialList1();
     }
 }
